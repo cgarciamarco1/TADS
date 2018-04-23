@@ -1,0 +1,50 @@
+Git commands
+
+Create branch:
+> git branch [branch_name]
+
+View branches:
+> git branch
+
+Switch branch:
+> git checkout [branch_name]
+
+Add element to the commit:
+> git add [file_name]
+
+Add all elements to the commit:
+> git add .
+
+Commit:
+> git commit ["message"]
+
+Delete changes introduced from the last commit
+> git checkout -- [file_name]
+
+To merge:
+--> go to the master and then specify which branch to merge with it
+> git merge [branch_name]
+
+To add and commit at the same time:
+> git checkout -am ["message"]
+
+To upload (push) to the folder online
+> git push -u orgin master
+
+To collaborate:
+--> Fork the project
+--> Clone the forked project
+--> use the following commands
+
+> git clone [address_of_my_project]
+> git remote -v //comprueba donde estamos
+> git remote add upstream master [address_of_the_original_project]
+> git pull -r upstream master //I download the project up to date
+> git push origin feature_fabio
+
+To create a branch and enter:
+> git checkout -b [branch_name]
+
+
+To access the material where it's explained the branching method we are going to use:
+--> http://nvie.com/posts/a-successful-git-branching-model/
