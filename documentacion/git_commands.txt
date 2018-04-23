@@ -45,6 +45,5 @@ To collaborate:
 To create a branch and enter:
 > git checkout -b [branch_name]
 
-
-To access the material where it's explained the branching method we are going to use:
+To access the exlanation of the branching method we are going to use:
 --> http://nvie.com/posts/a-successful-git-branching-model/
