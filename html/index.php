@@ -27,6 +27,8 @@
 		<nav id="nav">
 		</nav>
 		<div id="main">
+
+			<img src="img/918263-Pizzeria-La-Imperial-banner-1.w1900.jpg" alt="imagen pizza" onclick="CargarID('10_pedidosV.php', '10_pedidosC.php', 'main')"></img>
 		</div>
 		<div id="myAlert"></div>
 	</body>
