@@ -28,7 +28,7 @@
 		</nav>
 		<div id="main">
 
-			<img src="img/918263-Pizzeria-La-Imperial-banner-1.w1900.jpg" alt="imagen pizza" onclick="CargarID('10_pedidosV.php', '10_pedidosC.php', 'main')"></img>
+			<img src="img/918263-Pizzeria-La-Imperial-banner-1.w1900.jpg" alt="imagen pizza" onclick="CargarID('10_pedidosV.php', '10_pedidosC.php', 'main')" style="cursor:pointer"></img>
 		</div>
 		<div id="myAlert"></div>
 	</body>

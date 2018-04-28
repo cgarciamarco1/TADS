@@ -140,12 +140,15 @@ li.menuItem:hover{
 
 ul.submenu{
 	display: none;
-	position:relative;
+	position:absolute;
 	list-style:none;
 	margin:0px;
 	padding:0;
 	background: #FBDCAC;
 	z-index: 20;
+	width: 18%;
+
+
 }
 
 li.menuItem:hover > ul{
@@ -254,6 +257,7 @@ fieldset{
 	box-shadow: 4px 4px 10px #999;
 }
 
+
 table,th,td,tr.productos{
 	border: 2px solid #F0CA4D;
 	margin: 5px;
@@ -276,3 +280,6 @@ table,th,td,tr.productos{
 
 /*font-family: 'Mukta Mahee', sans-serif;*/
 
+input[type="number"]{
+	width: 40px;
+}

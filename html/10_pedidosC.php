@@ -133,6 +133,10 @@ $("postre").onclick=function(){
 	REQ.send("opcion="+opcion);
 }
 
+$("anadir").onclick=function(){
+	;
+}
+
 $("pizza").onclick();
 $("bebida").onclick();
 $("postre").onclick();
