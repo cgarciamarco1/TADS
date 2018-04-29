@@ -231,7 +231,7 @@ fieldset{
 
  	top: 150px; 
  	left: 50%;
-
+ 	z-index: 50;
  	transform: translate(-50%, -50%);
 	color:#fff;
 	background-color:#4CAF50;
@@ -247,7 +247,7 @@ fieldset{
 	
  	top: 150px; 
  	left: 50%;
- 	
+ 	z-index: 50;
 	transform: translate(-50%, -50%);
 	color:#fff;
 	background-color:#ff5050;

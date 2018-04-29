@@ -316,13 +316,21 @@ $("cancelar").onclick=function(){
 }
 
 $("confirmar").onclick=function(){
-	
+	var cad=$("listadelpedido").innerHTML;
+	var nada="<p>Ningún producto seleccionado</p>";
+	if (cad==nada){
+		myAlert("&#10008; No se ha añadido ningún producto",false);
+		return;
+	}
 	
 	$("transparencia").style="display:inline";
 	$("datosenvio").style="display:inline";
 	var fecha=new Date();
 	var horas=fecha.getHours();
 	var minutos=fecha.getMinutes();
+		if(horas<10){
+			horas="0"+horas;
+		}
 		if(minutos<10){
 			minutos="0"+minutos;
 		}
@@ -332,6 +340,14 @@ $("confirmar").onclick=function(){
 $("confirmardatosenvio").onclick=function(){
 		var REQ, resp, i, j;
 		nombre=$("nombrecliente").value;
+		var ok;
+		ok=CampoVacio(nombre);
+		if (ok!=1){
+			myAlert("&#10008; El campo nombre no puede estar vacío",false);
+			$("nombrecliente").focus();
+			return;
+		} 
+
 		horaactivacion=$("horaactivacion").value;
 		comentarios=$("comentarios").value;
 		direccion=$("direccion").value;
@@ -351,6 +367,7 @@ $("confirmardatosenvio").onclick=function(){
 
 		$("transparencia").style="display:none";
 		$("datosenvio").style="display:none";
+		myAlert('&#10008; Pedido realizado', true);
 		CargarID('10_pedidosV.php', '10_pedidosC.php', 'main');
 }
 

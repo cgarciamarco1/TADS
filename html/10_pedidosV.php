@@ -39,9 +39,7 @@
 		<fieldset>
 			<legend>Detalle del pedido:</legend>
 		
-				<div id="listadelpedido">
-					<p>Ningún producto seleccionado</p>
-				</div>
+				<div id="listadelpedido"><p>Ningún producto seleccionado</p></div>
 		
 
 		<button class="botonformulario" id="confirmar">Confirmar</button>
