@@ -266,6 +266,48 @@ fieldset{
 	width: 90%;
 }
 
+.transparencia{
+	position: absolute;
+	background-color:#FAFAFA;
+	opacity: 0.7;
+	overflow: auto;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 5;
+}
+
+.datosenvio{
+	position: absolute;
+	width: 60%;
+ 	top: 150px; 
+ 	left: 50%;
+  	transform: translate(-50%, 0%);
+	background-color:#FFFFFF;
+	font-size: 20px;
+	padding: 10px;
+	border-radius:5px;
+	box-shadow: 4px 4px 10px #999;
+	z-index: 10;	
+	text-align: center;
+}
+
+#datosenvio .formulariopedido{
+	width: 100%;
+}
+
+#datosenvio .formulariopedido fieldset{
+	width: 70%;
+}
+
+.cierraModal{
+	float: right;
+	padding: 2px 5px 2px 5px;
+	border: 1px;
+	cursor: pointer;
+	margin: -3px -3px 0px 5px;
+}
 
 table,th,td,tr.productos{
 	border: 2px solid #F0CA4D;

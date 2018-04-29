@@ -39,14 +39,39 @@
 		<fieldset>
 			<legend>Detalle del pedido:</legend>
 		
-				<div id="listadelpedido"></div>
+				<div id="listadelpedido">
+					<p>Ningún producto seleccionado</p>
+				</div>
 		
 
-		<button class="botonformulario" id="enviar">Confirmar</button>
-			<button class="botonformulario" id="cancelar">Cancelar</button>
+		<button class="botonformulario" id="confirmar">Confirmar</button>
+		<button class="botonformulario" id="cancelar">Cancelar</button>
+		<br></br>
 		</fieldset>
 	</div>
 </div>
-<div id="datospedido" style="display: inline">
-		<p id="numlineas">0</p>
+<div id="datospedido" style="display: none">
+	<p id="cargardetallepedido"></p>
+</div>
+<div id="transparencia" class="transparencia" style="display: none"></div>
+<div id="datosenvio" class="datosenvio" style="display: none">
+	<div class="formulariopedido">
+		<button class="cierraModal" id="cerrarmodal"> &#10060; </button>
+		<fieldset>
+		<legend>Datos del cliente:</legend>
+			</br>
+			Nombre del cliente: <input type="text" id="nombrecliente"></input>
+			</br>
+			Hora de activación: <input type="time" id="horaactivacion"></input>
+			</br>
+			Comentarios: <textarea id="comentarios"></textarea>
+			</br>
+			Dirección de entrega: <textarea type="text" id="direccion"></textarea>
+			</br>
+			Teléfono: <input type="text" id="telefono"></input>
+			</br>
+			</br>
+			<button class="botonformulario" id="confirmardatosenvio">Confirmar</button>
+		</fieldset>
+	</div>
 </div>
