@@ -31,7 +31,6 @@ $("pizza").onclick=function(){
 				document.registro.pizza.options[i].value=resp[i][0];
 				document.registro.pizza.options[i].text=resp[i][1];
 			}
-				$("pizza").onchange();//volvemos a recargar los lugares
 				
             //$("contenido").innerHTML = cad + "<hr/><br/> la respuesta 'JSON' del servidor ha sido la siguiente:<pre>"+REQ.responseText+"</pre>";
 		}
@@ -76,7 +75,6 @@ $("bebida").onclick=function(){
 				document.registro.bebida.options[i].value=resp[i][0];
 				document.registro.bebida.options[i].text=resp[i][1];
 			}
-				$("bebida").onchange();//volvemos a recargar los lugares
 				
             //$("contenido").innerHTML = cad + "<hr/><br/> la respuesta 'JSON' del servidor ha sido la siguiente:<pre>"+REQ.responseText+"</pre>";
 		}
@@ -121,7 +119,6 @@ $("postre").onclick=function(){
 				document.registro.postre.options[i].value=resp[i][0];
 				document.registro.postre.options[i].text=resp[i][1];
 			}
-				$("postre").onchange();//volvemos a recargar los lugares
 				
             //$("contenido").innerHTML = cad + "<hr/><br/> la respuesta 'JSON' del servidor ha sido la siguiente:<pre>"+REQ.responseText+"</pre>";
 		}
@@ -133,8 +130,42 @@ $("postre").onclick=function(){
 	REQ.send("opcion="+opcion);
 }
 
-$("anadir").onclick=function(){
-	;
+$("anadirpizza").onclick=function(){
+	var numlineas=$("numlineas");
+	var pizzaid=$("pizza").value;
+	var pizzanombre=document.registro.pizza.options[pizza.selectedIndex].text;
+	var pizzacantidad=$("pizzacantidad").value;
+	var anadir=$("listadelpedido").innerHTML;
+	anadir+="<p>"+pizzanombre+" "+pizzacantidad+"</p>";
+	$("listadelpedido").innerHTML=anadir;
+	anadir=$("datospedido").innerHTML;
+	anadir+="<p>"+pizzaid+" "+pizzanombre+" "+pizzacantidad+"</p>";
+	$("datospedido").innerHTML=anadir;
+
+
+	
+}
+
+$("anadirbebida").onclick=function(){
+	var bebidaid=$("bebida").value;
+	var bebidanombre=document.registro.bebida.options[bebida.selectedIndex].text;
+	var bebidacantidad=$("bebidacantidad").value;
+	
+}
+
+$("anadirpostre").onclick=function(){
+	var postreid=$("postre").value;
+	var postrenombre=document.registro.postre.options[postre.selectedIndex].text;
+	var postrecantidad=$("postrecantidad").value;
+	
+}
+
+$("pizzacantidad").onchange=function(){
+	var pizzacantidad=$("pizzacantidad").value;
+	if (pizzacantidad<1){
+		$("pizzacantidad").value=1;
+		$("pizzacantidad").focus;
+	}
 }
 
 $("pizza").onclick();

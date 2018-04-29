@@ -257,6 +257,15 @@ fieldset{
 	box-shadow: 4px 4px 10px #999;
 }
 
+.formulariopedido{
+	float:left;
+	width: 50%;
+}
+
+.formulariopedido fieldset{
+	width: 90%;
+}
+
 
 table,th,td,tr.productos{
 	border: 2px solid #F0CA4D;
