@@ -27,6 +27,8 @@
 		<nav id="nav">
 		</nav>
 		<div id="main">
+
+			<img src="img/pizza.jpg" alt="imagen pizza" onclick="CargarID('10_pedidosV.php', '10_pedidosC.php', 'main')" style="cursor:pointer; width:100%"></img>
 		</div>
 		<div id="myAlert"></div>
 	</body>
