@@ -20,4 +20,12 @@ switch($_POST["opcion"])
 
 		echo get_Data_SQL ($res, array() ,$mysqli);
 		break;
+
+//eliminar un producto de la base de datos
+	case 3:
+		$eliminar=$_POST["eliminar"];
+		$res=("DELETE FROM productos WHERE productos.id = '%$eliminar%'");
+		echo get_Data_SQL ($res, array() ,$mysqli);
+		break;
+	
 }
