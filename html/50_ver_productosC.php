@@ -150,9 +150,11 @@ $("buscar").onclick=function()
 
 $("productos").onclick(); //ejecuta el script productos
 
-$("eliminar").onclick=function(){
+document.getElementsByClassName("botonEliminar").onclick = function()
+{
 	var REQ, resp, i, j;
 	var cad="";
+	alert("entro");
 
 	try{REQ=new XMLHttpRequest();}
 	catch(e){alert("No AJAX"); return;}
@@ -173,9 +175,10 @@ $("eliminar").onclick=function(){
 		}
 	}
 	
-	var eliminar = $("botonEliminar").value;
+	
+	var borra = document.getElementsByClassName("botonEliminar").value;
 	opcion=3;
 	REQ.open("POST","50_ver_productosM.php",true); // true -> Ajax ASINCRONO
 	REQ.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-	REQ.send("opcion="+opcion+"&eliminar="+eliminar);
+	REQ.send("opcion="+opcion+"&borra="+borra);
 }
