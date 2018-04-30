@@ -5,7 +5,7 @@
 
 
 // 1- Conexión (la base de datos 'cdcol' viene de ejemplo con XAMPP)
-$mysqli = new mysqli("localhost", "root", "", "pizzeria");
+$mysqli = new mysqli("localhost", "root", "somos5_tads", "pizzeria");
 
 // 2- Verificar si se ha producido o no la conexión
 if (mysqli_connect_errno())
