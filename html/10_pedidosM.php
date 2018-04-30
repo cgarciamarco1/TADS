@@ -83,8 +83,15 @@ switch($_POST["opcion"])
 	$telefono=$_POST["telefono"];
 	$producto=$_POST["producto"];
 	$cantidad=$_POST["cantidad"];
-	$preciototal=$_POST["preciototal"];
-	$SQL="INSERT INTO pedido (nombre_cliente, telefono, direccion_entrega, estado, comentarios) VALUES ('$nombre', '$telefono', '$direccion', '1', '$comentarios')";
+	$horaactivacion=$_POST["horaactivacion"];
+	
+
+	$SQL="SELECT SUM(preciototal) FROM tmppedido";//buscamos la suma del precio del pedido
+	$res=$mysqli->query($SQL);
+	$valor=mysqli_fetch_array($res);
+	$preciototal=$valor[0];
+	
+	$SQL="INSERT INTO pedido (nombre_cliente, telefono, precio_total, direccion_entrega, estado, comentarios, fecha_hora_activacion) VALUES ('$nombre', '$telefono', '$preciototal', '$direccion', '1', '$comentarios', '$horaactivacion')";
 	$mysqli->query($SQL);
 	$int_id=$mysqli->insert_id;
 

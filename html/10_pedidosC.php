@@ -334,7 +334,7 @@ $("confirmar").onclick=function(){
 		if(minutos<10){
 			minutos="0"+minutos;
 		}
-	$("horaactivacion").value=(horas+":"+minutos);	
+	$("horaactivacion").value=(horas+":"+minutos+":00");	
 }
 
 $("confirmardatosenvio").onclick=function(){
@@ -348,6 +348,7 @@ $("confirmardatosenvio").onclick=function(){
 			return;
 		} 
 
+		hora=$("horaactivacion").value;
 		horaactivacion=$("horaactivacion").value;
 		comentarios=$("comentarios").value;
 		direccion=$("direccion").value;
@@ -355,7 +356,16 @@ $("confirmardatosenvio").onclick=function(){
 		var REQ, resp;
 		try{REQ=new XMLHttpRequest();}
 		catch(e){alert("No AJAX"); return;}
-
+		try
+		{
+			resp = eval(REQ.responseText);
+			//$("main").innerHTML = "<b><u>Bien</u>:</b><br/><br/><pre>" + REQ.responseText + "</pre>";
+		}
+		catch(e)
+		{
+			$("main").innerHTML = "<b><u>Error</u>:</b><br/><br/><pre>" + REQ.responseText + "</pre>";
+			return;
+		}
 
 		opcion=7;
 		REQ.open("POST","10_pedidosM.php",false); // false -> Ajax SINCRONO

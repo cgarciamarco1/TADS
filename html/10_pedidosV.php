@@ -60,7 +60,7 @@
 			</br>
 			Nombre del cliente: <input type="text" id="nombrecliente"></input>
 			</br>
-			Hora de activación: <input type="time" id="horaactivacion"></input>
+			Hora de activación: <input type="timeline" id="horaactivacion"></input>
 			</br>
 			Comentarios: <textarea id="comentarios"></textarea>
 			</br>
