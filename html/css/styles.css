@@ -120,8 +120,6 @@ nav ul{
 	
 }
 
-
-
 li.menuItem{
 	float: left;
 	font-size: 150%;
@@ -142,12 +140,15 @@ li.menuItem:hover{
 
 ul.submenu{
 	display: none;
-	position:relative;
+	position:absolute;
 	list-style:none;
 	margin:0px;
 	padding:0;
 	background: #FBDCAC;
 	z-index: 20;
+	width: 18%;
+
+
 }
 
 li.menuItem:hover > ul{
@@ -230,7 +231,7 @@ fieldset{
 
  	top: 150px; 
  	left: 50%;
-
+ 	z-index: 50;
  	transform: translate(-50%, -50%);
 	color:#fff;
 	background-color:#4CAF50;
@@ -246,7 +247,7 @@ fieldset{
 	
  	top: 150px; 
  	left: 50%;
- 	
+ 	z-index: 50;
 	transform: translate(-50%, -50%);
 	color:#fff;
 	background-color:#ff5050;
@@ -254,6 +255,58 @@ fieldset{
 	padding: 10px;
 	border-radius:16px;
 	box-shadow: 4px 4px 10px #999;
+}
+
+.formulariopedido{
+	float:left;
+	width: 50%;
+}
+
+.formulariopedido fieldset{
+	width: 90%;
+}
+
+.transparencia{
+	position: absolute;
+	background-color:#FAFAFA;
+	opacity: 0.7;
+	overflow: auto;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 5;
+}
+
+.datosenvio{
+	position: absolute;
+	width: 60%;
+ 	top: 150px; 
+ 	left: 50%;
+  	transform: translate(-50%, 0%);
+	background-color:#FFFFFF;
+	font-size: 20px;
+	padding: 10px;
+	border-radius:5px;
+	box-shadow: 4px 4px 10px #999;
+	z-index: 10;	
+	text-align: center;
+}
+
+#datosenvio .formulariopedido{
+	width: 100%;
+}
+
+#datosenvio .formulariopedido fieldset{
+	width: 70%;
+}
+
+.cierraModal{
+	float: right;
+	padding: 2px 5px 2px 5px;
+	border: 1px;
+	cursor: pointer;
+	margin: -3px -3px 0px 5px;
 }
 
 table,th,td,tr.productos{
@@ -278,3 +331,63 @@ table,th,td,tr.productos{
 
 /*font-family: 'Mukta Mahee', sans-serif;*/
 
+input[type="number"]{
+	width: 40px;
+}
+
+.icon{
+	height:20px;
+	cursor: pointer;
+}
+
+.arrows{
+	float:right;
+	margin:10px;
+}
+
+.pedido{
+	background-color:#F0CA4D;
+	border-radius:5px;
+	text-align:left;
+	font-weight:bold;
+	font-size:18px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.pedido_general{
+	margin:20px;
+	width:500px;
+	display:inline-block;
+	padding-left:20px;
+	font-family:verdana;
+}
+
+.pedido_detalles{
+	background-color:#F0CA4D;
+	border-radius:5px;
+	font-size:16px;
+}
+
+.lineas_pedido{
+	border-collapse:collapse;
+}
+
+.lineas_pedido .toprow tr:hover{
+	background-color:none;
+}
+
+
+.lineas_pedido tr:hover {
+	background-color:#fafa50
+}
+
+.lineas_pedido td, th{
+	padding: 5px 10px 5px;
+	text-align:center;
+	border-bottom: 1px solid #002699;
+}
+
+.lineas_pedido th {
+	border-bottom-width:2px;
+}

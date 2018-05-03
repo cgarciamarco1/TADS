@@ -1,6 +1,9 @@
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<p>Mesa de trabajo en construcción..</p>
+<div align="center">
+	
+	<input type="hidden" id="refrescar"/>
+	
+	<div id="listado_pedidos">
+		
+	</div>
+	
+</div>

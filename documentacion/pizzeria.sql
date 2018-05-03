@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 01, 2018 at 05:16 PM
--- Server version: 10.1.23-MariaDB-9+deb9u1
--- PHP Version: 7.0.27-0+deb9u1
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 30-04-2018 a las 14:37:42
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,18 +17,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pizzeria`
+-- Base de datos: `pizzeria`
 --
-CREATE DATABASE IF NOT EXISTS `pizzeria` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `pizzeria`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estado_pedido`
+-- Estructura de tabla para la tabla `estado_pedido`
 --
 
-DROP TABLE IF EXISTS `estado_pedido`;
 CREATE TABLE `estado_pedido` (
   `ID` int(11) NOT NULL,
   `nombre` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -36,7 +33,7 @@ CREATE TABLE `estado_pedido` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `estado_pedido`
+-- Volcado de datos para la tabla `estado_pedido`
 --
 
 INSERT INTO `estado_pedido` (`ID`, `nombre`, `descripcion`) VALUES
@@ -45,10 +42,9 @@ INSERT INTO `estado_pedido` (`ID`, `nombre`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `linea_pedido`
+-- Estructura de tabla para la tabla `linea_pedido`
 --
 
-DROP TABLE IF EXISTS `linea_pedido`;
 CREATE TABLE `linea_pedido` (
   `ID` int(11) NOT NULL,
   `idproducto` int(11) NOT NULL,
@@ -58,22 +54,12 @@ CREATE TABLE `linea_pedido` (
   `comentario` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Comentario opcional (para añadir o quitar ingredientes)'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `linea_pedido`
---
-
-INSERT INTO `linea_pedido` (`ID`, `idproducto`, `pedido`, `cantidad`, `preciototal`, `comentario`) VALUES
-(124, 1, 159, 1, '10', ''),
-(125, 6, 159, 1, '2', ''),
-(126, 7, 159, 1, '3', '');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pedido`
+-- Estructura de tabla para la tabla `pedido`
 --
 
-DROP TABLE IF EXISTS `pedido`;
 CREATE TABLE `pedido` (
   `ID` int(11) NOT NULL,
   `nombre_cliente` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
@@ -86,20 +72,12 @@ CREATE TABLE `pedido` (
   `comentarios` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `pedido`
---
-
-INSERT INTO `pedido` (`ID`, `nombre_cliente`, `telefono`, `fecha_hora_pedido`, `fecha_hora_activacion`, `precio_total`, `direccion_entrega`, `estado`, `comentarios`) VALUES
-(159, 'Fabio', '', '2018-05-01 14:37:05', '16:36:00', '15', '', 1, '');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
-DROP TABLE IF EXISTS `productos`;
 CREATE TABLE `productos` (
   `ID` int(11) NOT NULL,
   `nombre` varchar(40) COLLATE utf8_unicode_ci NOT NULL COMMENT 'nombre del producto',
@@ -110,7 +88,7 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`ID`, `nombre`, `lista_ingredientes`, `precio`, `disponible`, `tipo_producto`) VALUES
@@ -126,17 +104,16 @@ INSERT INTO `productos` (`ID`, `nombre`, `lista_ingredientes`, `precio`, `dispon
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo_producto`
+-- Estructura de tabla para la tabla `tipo_producto`
 --
 
-DROP TABLE IF EXISTS `tipo_producto`;
 CREATE TABLE `tipo_producto` (
   `id` int(11) NOT NULL,
   `tipo_nombre` varchar(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tipo_producto`
+-- Volcado de datos para la tabla `tipo_producto`
 --
 
 INSERT INTO `tipo_producto` (`id`, `tipo_nombre`) VALUES
@@ -147,10 +124,9 @@ INSERT INTO `tipo_producto` (`id`, `tipo_nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmppedido`
+-- Estructura de tabla para la tabla `tmppedido`
 --
 
-DROP TABLE IF EXISTS `tmppedido`;
 CREATE TABLE `tmppedido` (
   `id` int(11) NOT NULL,
   `idproducto` int(11) NOT NULL,
@@ -162,17 +138,17 @@ CREATE TABLE `tmppedido` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `estado_pedido`
+-- Indices de la tabla `estado_pedido`
 --
 ALTER TABLE `estado_pedido`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `linea_pedido`
+-- Indices de la tabla `linea_pedido`
 --
 ALTER TABLE `linea_pedido`
   ADD PRIMARY KEY (`ID`),
@@ -180,7 +156,7 @@ ALTER TABLE `linea_pedido`
   ADD KEY `ID_producto` (`idproducto`);
 
 --
--- Indexes for table `pedido`
+-- Indices de la tabla `pedido`
 --
 ALTER TABLE `pedido`
   ADD PRIMARY KEY (`ID`),
@@ -188,7 +164,7 @@ ALTER TABLE `pedido`
   ADD KEY `ID_estado` (`estado`);
 
 --
--- Indexes for table `productos`
+-- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`ID`),
@@ -196,70 +172,70 @@ ALTER TABLE `productos`
   ADD KEY `tipo` (`tipo_producto`);
 
 --
--- Indexes for table `tipo_producto`
+-- Indices de la tabla `tipo_producto`
 --
 ALTER TABLE `tipo_producto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tmppedido`
+-- Indices de la tabla `tmppedido`
 --
 ALTER TABLE `tmppedido`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `estado_pedido`
+-- AUTO_INCREMENT de la tabla `estado_pedido`
 --
 ALTER TABLE `estado_pedido`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `linea_pedido`
+-- AUTO_INCREMENT de la tabla `linea_pedido`
 --
 ALTER TABLE `linea_pedido`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 --
--- AUTO_INCREMENT for table `pedido`
+-- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
 --
--- AUTO_INCREMENT for table `productos`
+-- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT for table `tipo_producto`
+-- AUTO_INCREMENT de la tabla `tipo_producto`
 --
 ALTER TABLE `tipo_producto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `tmppedido`
+-- AUTO_INCREMENT de la tabla `tmppedido`
 --
 ALTER TABLE `tmppedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=295;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=282;
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `linea_pedido`
+-- Filtros para la tabla `linea_pedido`
 --
 ALTER TABLE `linea_pedido`
   ADD CONSTRAINT `linea_pedido_ibfk_1` FOREIGN KEY (`idproducto`) REFERENCES `productos` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `linea_pedido_ibfk_2` FOREIGN KEY (`pedido`) REFERENCES `pedido` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pedido`
+-- Filtros para la tabla `pedido`
 --
 ALTER TABLE `pedido`
   ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`estado`) REFERENCES `estado_pedido` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `productos`
+-- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`tipo_producto`) REFERENCES `tipo_producto` (`id`);

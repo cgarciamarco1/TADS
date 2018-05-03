@@ -11,6 +11,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="lib/interfazVC.js"></script>
+		<script src="lib/01_utils.js"></script>
 		<title> TADS COMPANY </title>
 	</head>
 
@@ -27,6 +28,8 @@
 		<nav id="nav">
 		</nav>
 		<div id="main">
+
+			<img src="img/pizza.jpg" alt="imagen pizza" onclick="CargarID('10_pedidosV.php', '10_pedidosC.php', 'main')" style="cursor:pointer; width:100%"></img>
 		</div>
 		<div id="myAlert"></div>
 	</body>
