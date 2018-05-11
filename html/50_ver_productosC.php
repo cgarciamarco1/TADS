@@ -3,7 +3,6 @@ $("productos").onclick=function()
 {
 	var REQ, resp, i, j;
 	var cad="";
-	var aux;
 
 	try{REQ=new XMLHttpRequest();}
 	catch(e){alert("No AJAX"); return;}
@@ -45,6 +44,7 @@ $("productos").onclick=function()
 			
 			
 			if (resp.length>0){
+				var aux;
 				for(i=0;i<resp.length;i++)
 				{
 					aux = resp[i][0];
@@ -54,12 +54,18 @@ $("productos").onclick=function()
 					cad+="<td>"+resp[i][2]+"</td>";
 					cad+="<td>"+resp[i][3]+"</td>";
 					cad+="<td>"+resp[i][4]+"</td>";
-					cad+="<td><button class='botonEliminar' value='$aux'>Eliminar</button></td>";
+					cad+="<td><button id='eliminar"+i+"' value='"+aux+"'>Eliminar</button></td>";
 					cad+="</tr>";
 				}
 					cad+="</table>";
 
 	            $("datos2").innerHTML = cad //+ "<hr/><br/> la respuesta 'JSON' del servidor ha sido la siguiente:<pre>"+REQ.responseText+"</pre>";
+				
+				for(i=0;i<resp.length;i++){
+					$('eliminar'+i).onclick=function(){
+						deleteProducto(aux);
+					}
+				}
 				
 				
 			}
@@ -76,7 +82,6 @@ $("buscar").onclick=function()
 {
 	var REQ, resp, i, j;
 	var cad="";
-	var aux;
 
 	try{REQ=new XMLHttpRequest();}
 	catch(e){alert("No AJAX"); return;}
@@ -123,6 +128,7 @@ $("buscar").onclick=function()
 				$("busqueda").focus();
 				return;
 			}
+			var aux;
 	
 				for(i=0;i<resp.length;i++)
 				{
@@ -133,12 +139,18 @@ $("buscar").onclick=function()
 					cad+="<td>"+resp[i][2]+"</td>";
 					cad+="<td>"+resp[i][3]+"</td>";
 					cad+="<td>"+resp[i][4]+"</td>";
-					cad+="<td><button class='botonEliminar' value='$aux'>Eliminar</button></td>";
+					cad+="<td><button id='eliminar"+i+"' value='"+aux+"'>Eliminar</button></td>";
 					cad+="</tr>";
 				}
 					cad+="</table>";
 
 	            $("datos2").innerHTML = cad //+ "<hr/><br/> la respuesta 'JSON' del servidor ha sido la siguiente:<pre>"+REQ.responseText+"</pre>";
+				
+				for(i=0;i<resp.length;i++){
+					$('eliminar'+i).onclick=function(){
+						deleteProducto(aux);
+					}
+				}
 		}
 	}
 	var busqueda=$("busqueda").value;
@@ -146,19 +158,20 @@ $("buscar").onclick=function()
 	REQ.open("POST","50_ver_productosM.php",true); // true -> Ajax ASINCRONO
 	REQ.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 	REQ.send("opcion="+opcion+"&busqueda="+busqueda);
+	
+	
 }
 
 $("productos").onclick(); //ejecuta el script productos
 
-document.getElementsByClassName("botonEliminar").onclick = function()
-{
-	var REQ, resp, i, j;
-	var cad="";
-	alert("entro");
-
+function deleteProducto(i){
+	
+	var REQ, resp, i;
+	
 	try{REQ=new XMLHttpRequest();}
 	catch(e){alert("No AJAX"); return;}
-
+	
+	
 	REQ.onreadystatechange=function()
 	{
 		if(REQ.readyState==4)
@@ -166,6 +179,7 @@ document.getElementsByClassName("botonEliminar").onclick = function()
 			try
 			{
 				resp = eval(REQ.responseText);
+				$("productos").onclick();
 			}
 			catch(e)
 			{
@@ -174,11 +188,8 @@ document.getElementsByClassName("botonEliminar").onclick = function()
 			}
 		}
 	}
-	
-	
-	var borra = document.getElementsByClassName("botonEliminar").value;
 	opcion=3;
 	REQ.open("POST","50_ver_productosM.php",true); // true -> Ajax ASINCRONO
 	REQ.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-	REQ.send("opcion="+opcion+"&borra="+borra);
+	REQ.send("opcion="+opcion+"&eliminar="+i);
 }
