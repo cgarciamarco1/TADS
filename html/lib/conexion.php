@@ -6,7 +6,7 @@
 
 // 1- Conexión (la base de datos 'cdcol' viene de ejemplo con XAMPP)
 
-$mysqli = new mysqli("localhost", "root", "", "pizzeria");
+$mysqli = new mysqli("tads.hopto.org/phpmyadmin", "root", "somos5_tads", "pizzeria");
 
 //$mysqli = new mysqli("localhost", "root", "somos5_tads", "pizzeria");
 
