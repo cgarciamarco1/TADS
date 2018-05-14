@@ -3,6 +3,7 @@ $("productos").onclick=function()
 {
 	var REQ, resp, i, j;
 	var cad="";
+	var aux;
 
 	try{REQ=new XMLHttpRequest();}
 	catch(e){alert("No AJAX"); return;}
@@ -34,24 +35,26 @@ $("productos").onclick=function()
 			
 			cad+="<table class='productos'>";
 			cad+="<tr>";
-			cad+="<th>nombre</th>";
+			cad+="<th>Nombre</th>";
 			cad+="<th>Ingredientes</th>";
 			cad+="<th>Precio</th>";
 			cad+="<th>Disponible</th>";
 			cad+="<th>Tipo de producto</th>";
+			cad+="<th></th>";
 			cad+="</tr>";
 			
 			
 			if (resp.length>0){
-			
 				for(i=0;i<resp.length;i++)
 				{
+					aux = resp[i][0];
 					cad+="<tr>";
-					cad+="<td>"+resp[i][0]+"</td>";
+					cad+="<td>"+aux+"</td>";
 					cad+="<td>"+resp[i][1]+"</td>";
 					cad+="<td>"+resp[i][2]+"</td>";
 					cad+="<td>"+resp[i][3]+"</td>";
 					cad+="<td>"+resp[i][4]+"</td>";
+					cad+="<td><button class='botonEliminar' value='$aux'>Eliminar</button></td>";
 					cad+="</tr>";
 				}
 					cad+="</table>";
@@ -73,6 +76,7 @@ $("buscar").onclick=function()
 {
 	var REQ, resp, i, j;
 	var cad="";
+	var aux;
 
 	try{REQ=new XMLHttpRequest();}
 	catch(e){alert("No AJAX"); return;}
@@ -109,6 +113,7 @@ $("buscar").onclick=function()
 			cad+="<th>Precio</th>";
 			cad+="<th>Disponible</th>";
 			cad+="<th>Tipo de producto</th>";
+			cad+="<th></th>";
 			cad+="</tr>";
 			
 			//Si la búsqueda no optiene resultados muestra aviso
@@ -121,12 +126,14 @@ $("buscar").onclick=function()
 	
 				for(i=0;i<resp.length;i++)
 				{
+					aux = resp[i][0];
 					cad+="<tr>";
-					cad+="<td>"+resp[i][0]+"</td>";
+					cad+="<td>"+aux+"</td>";
 					cad+="<td>"+resp[i][1]+"</td>";
 					cad+="<td>"+resp[i][2]+"</td>";
 					cad+="<td>"+resp[i][3]+"</td>";
 					cad+="<td>"+resp[i][4]+"</td>";
+					cad+="<td><button class='botonEliminar' value='$aux'>Eliminar</button></td>";
 					cad+="</tr>";
 				}
 					cad+="</table>";
@@ -142,3 +149,33 @@ $("buscar").onclick=function()
 }
 
 $("productos").onclick(); //ejecuta el script productos
+
+$("eliminar").onclick=function(){
+	var REQ, resp, i, j;
+	var cad="";
+
+	try{REQ=new XMLHttpRequest();}
+	catch(e){alert("No AJAX"); return;}
+
+	REQ.onreadystatechange=function()
+	{
+		if(REQ.readyState==4)
+		{
+			try
+			{
+				resp = eval(REQ.responseText);
+			}
+			catch(e)
+			{
+				$("main").innerHTML = "<b><u>Error</u>:</b><br/><br/><pre>" + REQ.responseText + "</pre>";
+				return;
+			}
+		}
+	}
+	
+	var eliminar = $("botonEliminar").value;
+	opcion=3;
+	REQ.open("POST","50_ver_productosM.php",true); // true -> Ajax ASINCRONO
+	REQ.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	REQ.send("opcion="+opcion+"&eliminar="+eliminar);
+}

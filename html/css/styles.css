@@ -334,3 +334,61 @@ table,th,td,tr.productos{
 input[type="number"]{
 	width: 40px;
 }
+
+
+.icon{
+	height:20px;
+	cursor: pointer;
+}
+
+.arrows{
+	float:right;
+	margin:10px;
+}
+
+.pedido{
+	background-color:#F0CA4D;
+	border-radius:5px;
+	text-align:left;
+	font-weight:bold;
+	font-size:18px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.pedido_general{
+	margin:20px;
+	width:500px;
+	display:inline-block;
+	padding-left:20px;
+	font-family:verdana;
+}
+
+.pedido_detalles{
+	background-color:#F0CA4D;
+	border-radius:5px;
+	font-size:16px;
+}
+
+.lineas_pedido{
+	border-collapse:collapse;
+}
+
+.lineas_pedido .toprow tr:hover{
+	background-color:none;
+}
+
+
+.lineas_pedido tr:hover {
+	background-color:#fafa50
+}
+
+.lineas_pedido td, th{
+	padding: 5px 10px 5px;
+	text-align:center;
+	border-bottom: 1px solid #002699;
+}
+
+.lineas_pedido th {
+	border-bottom-width:2px;
+}
